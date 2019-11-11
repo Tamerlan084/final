@@ -46,7 +46,7 @@ public class PenaltyOfPlayerInGameDao implements InitializingBean {
                 .addValue(COLUMN_GAME_ID, penaltyOfPlayerInGame.getGame_id());
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int status = namedParameterJdbcTemplate.update(SQL_INSERT_QUERY, param, keyHolder);
-        int id = Math.toIntExact(keyHolder.getKeys().get(COLUMN_PENALTY_PLAYER_GAME_ID) != null ? (Integer) keyHolder.getKeys().get(COLUMN_PENALTY_PLAYER_GAME_ID) : 0);
+        int id = Math.toIntExact(keyHolder.getKeys().get(COLUMN_PENALTY_PLAYER_GAME_ID) != null ? (Long) keyHolder.getKeys().get(COLUMN_PENALTY_PLAYER_GAME_ID) : 0);
         if (status != 0) {
             penaltyOfPlayerInGame.setPenaltyOfPlayerInGameId(id);
             log.info("PenaltyOfPlayerInGame data inserted with ID " + id);

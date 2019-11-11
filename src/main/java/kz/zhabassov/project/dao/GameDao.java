@@ -44,7 +44,7 @@ public class GameDao implements InitializingBean {
                 .addValue(COLUMN_GUEST_TEAM, game.getGuestTeam());
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int status = namedParameterJdbcTemplate.update(SQL_INSERT_QUERY, param, keyHolder);
-        int id = Math.toIntExact(keyHolder.getKeys().get(COLUMN_GAME_ID) != null ? (Integer) keyHolder.getKeys().get(COLUMN_GAME_ID) : 0);
+        int id = Math.toIntExact(keyHolder.getKeys().get(COLUMN_GAME_ID) != null ? (Long) keyHolder.getKeys().get(COLUMN_GAME_ID) : 0);
         if (status != 0) {
             game.setGameId(id);
             log.info("Game data inserted with ID, date and host and guest teams " + id + game.getDate() + "," + game.getHostTeam() + ":" + game.getGuestTeam());

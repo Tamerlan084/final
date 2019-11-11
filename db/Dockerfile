@@ -1,0 +1,5 @@
+FROM postgres:12
+
+ENV POSTGRES_USER postgres
+ENV POSTGRES_PASSWORD admin
+ENV POSTGRES_DB project

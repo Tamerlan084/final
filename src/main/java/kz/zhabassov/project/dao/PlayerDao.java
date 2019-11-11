@@ -41,7 +41,7 @@ public class PlayerDao implements InitializingBean {
                 .addValue(COLUMN_TEAM, player.getTeam());
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int status = namedParameterJdbcTemplate.update(SQL_INSERT_QUERY, param, keyHolder);
-        int id = Math.toIntExact(keyHolder.getKeys().get(COLUMN_PLAYER_ID) != null ? (Integer) keyHolder.getKeys().get(COLUMN_PLAYER_ID) : null);
+        int id = Math.toIntExact(keyHolder.getKeys().get(COLUMN_PLAYER_ID) != null ? (Long) keyHolder.getKeys().get(COLUMN_PLAYER_ID) : null);
         if (status != 0) {
             player.setPlayerId(id);
             log.info("Player data inserted with ID " + id);
